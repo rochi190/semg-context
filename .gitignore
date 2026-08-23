@@ -1,0 +1,18 @@
+# 大型資料
+moving_poseV2/semg_realtime_V4/src/data/
+*.tar.gz
+*.zip
+
+# 模型權重
+*.pth
+*.h5
+*.onnx
+*.pt
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# OS
+.DS_Store
