@@ -1,6 +1,0 @@
-# 即時分類需要的套件。CPU 版 torch 就夠 —— 推論固定在 CPU（部署是筆電）。
-numpy>=1.24
-scipy>=1.10
-pandas>=2.0
-torch>=2.0
-pyserial>=3.5
