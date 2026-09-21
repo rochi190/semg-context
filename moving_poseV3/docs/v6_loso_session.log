@@ -1,0 +1,65 @@
+依清單 configs/recordings_v6_4subj.txt 選用 9 份錄音（11 份可用中）
+
+  [ 1/9] chou     cue  multi_chou_20260910_18-27-     3425 視窗  (   18s)  ⛔排除 4 trial  arm_lift=287 elbow_flex=286 index_flex=286 pick_and_lift=228 pick_and_raise=170 pinch=285 rest=1370 shoulder_flex=286 thumb_flex=227
+     ⚠️ 開頭空白段落在壞段落內，校準改用 541.0~544.5s 的休息段（3.5s，共 39 段可選）
+  [ 2/9] gary     cue  multi_gary_20260811_17-11-     3693 視窗  (   37s)  arm_lift=286 elbow_flex=286 index_flex=228 pick_and_lift=284 pick_and_raise=285 pinch=285 rest=1475 shoulder_flex=284 thumb_flex=280
+  [ 3/9] gary     cue  multi_gary_20260811_17-23-     3759 視窗  (   56s)  arm_lift=285 elbow_flex=286 index_flex=285 pick_and_lift=283 pick_and_raise=284 pinch=285 rest=1479 shoulder_flex=286 thumb_flex=286
+  [ 4/9] gary     cue  multi_gary_20260821_22-03-     3826 視窗  (   75s)  arm_lift=284 elbow_flex=284 index_flex=285 pick_and_lift=286 pick_and_raise=285 pinch=285 rest=1547 shoulder_flex=284 thumb_flex=286
+  [ 5/9] gary     cue  multi_gary_20260821_22-17-     3827 視窗  (   94s)  arm_lift=286 elbow_flex=285 index_flex=284 pick_and_lift=283 pick_and_raise=284 pinch=286 rest=1547 shoulder_flex=288 thumb_flex=284
+  [ 6/9] leon     cue  multi_leon_20260911_16-00-     3702 視窗  (  113s)  ⛔排除 1 trial  arm_lift=286 elbow_flex=284 index_flex=286 pick_and_lift=285 pick_and_raise=229 pinch=285 rest=1477 shoulder_flex=286 thumb_flex=284
+  [ 7/9] neil     cue  multi_neil_20260810_21-17-     3225 視窗  (  130s)  arm_lift=227 elbow_flex=286 index_flex=228 pick_and_lift=228 pick_and_raise=231 pinch=226 rest=1289 shoulder_flex=284 thumb_flex=226
+  [ 8/9] neil     cue  multi_neil_20260810_21-35-     2752 視窗  (  144s)  ⛔排除 2 trial  arm_lift=170 elbow_flex=228 index_flex=227 pick_and_lift=168 pick_and_raise=170 pinch=227 rest=1106 shoulder_flex=228 thumb_flex=228
+  [ 9/9] neil     cue  multi_neil_20260810_21-54-     3843 視窗  (  163s)  arm_lift=285 elbow_flex=287 index_flex=286 pick_and_lift=286 pick_and_raise=288 pinch=287 rest=1555 shoulder_flex=285 thumb_flex=284
+
+🩹 套用了壞段落遮蔽（_badspans.txt）：
+     multi_gary_20260811_17-11-49         1 段、共 20s
+     multi_gary_20260811_17-23-12         1 段、共 9s
+     multi_neil_20260810_21-17-16         1 段、共 89s
+   （遮蔽的是**標籤**不是樣本；與該段重疊 >5% 的視窗會被丟掉。）
+
+
+  已快取 → results/loso_session_v6/dataset.npz  (164s)
+
+留一貼片場次：5 個場次、32,052 個視窗
+   chou_20260910: 3,425 視窗 / 1 份錄音
+   gary_20260811: 7,452 視窗 / 2 份錄音
+   gary_20260821: 7,653 視窗 / 2 份錄音
+   leon_20260911: 3,702 視窗 / 1 份錄音
+   neil_20260810: 9,820 視窗 / 3 份錄音
+
+平行跑 3 折（瓶頸是 CPU 串流重播，不是 GPU 訓練）
+
+[1/5] 留出 chou_20260910   訓練 28,627 視窗 / 測試 3,425
+    60910_18-27-41 → 全對=69.6%   hand=75.9%  elbow=98.4%  shoulder=91.3%
+[2/5] 留出 gary_20260811   訓練 24,600 視窗 / 測試 7,452
+    60811_17-11-49 → 全對=92.4%   hand=99.1%  elbow=94.0%  shoulder=99.3%
+    60811_17-23-12 → 全對=91.3%   hand=100.0%  elbow=92.2%  shoulder=98.9%
+[3/5] 留出 gary_20260821   訓練 24,399 視窗 / 測試 7,653
+    60821_22-03-40 → 全對=74.7%   hand=100.0%  elbow=74.7%  shoulder=100.0%
+    60821_22-17-38 → 全對=69.2%   hand=99.7%  elbow=69.5%  shoulder=100.0%
+[4/5] 留出 leon_20260911   訓練 28,350 視窗 / 測試 3,702
+    60911_16-00-14 → 全對=85.9%   hand=90.3%  elbow=95.6%  shoulder=98.9%
+[5/5] 留出 neil_20260810   訓練 22,232 視窗 / 測試 9,820
+    60810_21-17-16 → 全對=76.1%   hand=94.8%  elbow=81.0%  shoulder=96.2%
+    60810_21-35-03 → 全對=81.6%   hand=91.0%  elbow=88.8%  shoulder=97.8%
+    60810_21-54-56 → 全對=57.1%   hand=69.9%  elbow=89.7%  shoulder=83.9%
+     ⚠️ 開頭空白段落在壞段落內，校準改用 541.0~544.5s 的休息段（3.5s，共 39 段可選）
+
+==============================================================================
+留一份錄音 —— 每份都用其餘錄音訓練的模型預測（串流 + 投票）
+==============================================================================
+     held_out                    recording  protocol  n_windows exact   hand hand_bal elbow elbow_bal shoulder shoulder_bal
+chou_20260910 multi_chou_20260910_18-27-41         2       3792 69.6%  75.9%    64.2% 98.4%     97.3%    91.3%        94.4%
+gary_20260811 multi_gary_20260811_17-11-49         2       3691 92.4%  99.1%    98.1% 94.0%     92.1%    99.3%        98.5%
+gary_20260811 multi_gary_20260811_17-23-12         2       3717 91.3% 100.0%   100.0% 92.2%     87.2%    98.9%        97.7%
+gary_20260821 multi_gary_20260821_22-03-40         2       3790 74.7% 100.0%   100.0% 74.7%     81.4%   100.0%       100.0%
+gary_20260821 multi_gary_20260821_22-17-38         2       3793 69.2%  99.7%    99.7% 69.5%     78.2%   100.0%       100.0%
+leon_20260911 multi_leon_20260911_16-00-14         2       3787 85.9%  90.3%    84.1% 95.6%     93.1%    98.9%        99.3%
+neil_20260810 multi_neil_20260810_21-17-16         2       3189 76.1%  94.8%    94.5% 81.0%     82.6%    96.2%        92.2%
+neil_20260810 multi_neil_20260810_21-35-03         2       2880 81.6%  91.0%    81.2% 88.8%     88.2%    97.8%        95.4%
+neil_20260810 multi_neil_20260810_21-54-56         2       3796 57.1%  69.9%    50.0% 89.7%     90.7%    83.9%        64.4%
+
+平均全對率 77.5% ± 11.5%
+  hand      原始 91.2%   平衡 85.8%
+  elbow     原始 87.1%   平衡 87.9%
+  shoulder  原始 96.3%   平衡 93.5%

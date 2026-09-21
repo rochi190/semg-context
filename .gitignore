@@ -3,16 +3,57 @@ moving_poseV2/semg_realtime_V4/src/data/
 *.tar.gz
 *.zip
 
-# 模型權重
+# 大型模型權重
 *.pth
 *.h5
 *.onnx
-*.pt
+
+# 本地目錄排除
+/poster/
+/推甄資料/
 
 # Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
 .pytest_cache/
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# 虛擬環境
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDE / 編輯器
+.vscode/
+.idea/
+*.swp
+*.swo
 
 # OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
 .DS_Store

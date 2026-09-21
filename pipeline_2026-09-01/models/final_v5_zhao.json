@@ -1,0 +1,35 @@
+{
+  "recordings": [
+    "multi_gary_20260811_17-11-49",
+    "multi_gary_20260811_17-23-12",
+    "multi_gary_20260821_22-03-40",
+    "multi_gary_20260821_22-17-38",
+    "multi_neil_20260810_21-17-16",
+    "multi_neil_20260810_21-35-03",
+    "multi_neil_20260810_21-54-56"
+  ],
+  "n_windows": 24925,
+  "n_sequences": 20173,
+  "arch": "zhao",
+  "seq_len": 10,
+  "n_features": 120,
+  "channel_names": [
+    "latissimus_dorsi",
+    "biceps",
+    "triceps",
+    "deltoid_anterior",
+    "wrist_flexor",
+    "index",
+    "thumb"
+  ],
+  "include": "configs/recordings_v5.txt",
+  "badspans": true,
+  "zero_dead_channels": false,
+  "use_hampel": false,
+  "feat_version": 2,
+  "train_set_accuracy_NOT_a_performance_number": {
+    "hand": 1.0,
+    "elbow": 1.0,
+    "shoulder": 1.0
+  }
+}

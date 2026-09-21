@@ -1,0 +1,169 @@
+{
+  "stem": "multi_gary_20260810_14-56-09",
+  "subject": "gary",
+  "recorded_at": "2026-08-10T15:12:08",
+  "protocol": {
+    "protocol_version": 2,
+    "gestures": [
+      "index_flex",
+      "thumb_flex",
+      "pinch",
+      "elbow_flex",
+      "shoulder_flex",
+      "arm_lift",
+      "pick_and_lift",
+      "pick_and_raise"
+    ],
+    "reps": 5,
+    "order_seed": 44969,
+    "order_randomised": false,
+    "lead_sec": 5.0,
+    "tail_sec": 5.0,
+    "preview_sec": 1.5,
+    "prepare_sec": 2.0,
+    "action_sec": 4.0,
+    "return_sec": 2.5,
+    "rest_sec": 5.0,
+    "warmup_discard_sec": 1.0,
+    "margin_start_sec": 0.5,
+    "margin_rest_start_sec": 1.0,
+    "margin_end_sec": 0.2,
+    "cue_before_action": true
+  },
+  "hardware": {
+    "sps": 2000,
+    "gain": 8,
+    "vref": 4.5,
+    "lsb_mv": 6.705522537231445e-05,
+    "baud": 1600000,
+    "port": "COM10",
+    "dry_run": false
+  },
+  "dof_definition": {
+    "hand": {
+      "states": [
+        "rest",
+        "index",
+        "thumb",
+        "pinch"
+      ],
+      "label": "手部"
+    },
+    "elbow": {
+      "states": [
+        "rest",
+        "flex"
+      ],
+      "label": "手肘"
+    },
+    "shoulder": {
+      "states": [
+        "rest",
+        "flex"
+      ],
+      "label": "肩膀"
+    }
+  },
+  "action_to_dof": {
+    "index_flex": {
+      "hand": "index",
+      "elbow": "rest",
+      "shoulder": "rest"
+    },
+    "thumb_flex": {
+      "hand": "thumb",
+      "elbow": "rest",
+      "shoulder": "rest"
+    },
+    "pinch": {
+      "hand": "pinch",
+      "elbow": "rest",
+      "shoulder": "rest"
+    },
+    "elbow_flex": {
+      "hand": "rest",
+      "elbow": "flex",
+      "shoulder": "rest"
+    },
+    "shoulder_flex": {
+      "hand": "rest",
+      "elbow": "rest",
+      "shoulder": "flex"
+    },
+    "arm_lift": {
+      "hand": "rest",
+      "elbow": "flex",
+      "shoulder": "flex"
+    },
+    "pick_and_lift": {
+      "hand": "pinch",
+      "elbow": "flex",
+      "shoulder": "rest"
+    },
+    "pick_and_raise": {
+      "hand": "pinch",
+      "elbow": "flex",
+      "shoulder": "flex"
+    }
+  },
+  "electrode_placement": {
+    "ch1": {
+      "muscle": "背闊肌",
+      "name": "latissimus_dorsi"
+    },
+    "ch2": {
+      "muscle": "三角肌前束",
+      "name": "deltoid_anterior"
+    },
+    "ch3": {
+      "muscle": "三頭肌",
+      "name": "triceps"
+    },
+    "ch4": {
+      "muscle": "二頭肌",
+      "name": "biceps"
+    },
+    "ch5": {
+      "muscle": "曲腕肌",
+      "name": "wrist_flexor"
+    },
+    "ch6": {
+      "muscle": "食指",
+      "name": "index"
+    },
+    "ch7": {
+      "muscle": "拇指",
+      "name": "thumb"
+    }
+  },
+  "quality": {
+    "n_samples": 1100064,
+    "n_bad_frames": 0,
+    "duration_s": 550.03,
+    "expected_duration_s": 550.0,
+    "mean_fs_hz": 2000.0,
+    "bad_frame_rate": 0.0
+  },
+  "notes": "",
+  "pose_spec": {
+    "neutral": "坐姿，上臂自然下垂於體側，手肘伸直，前臂與手自然下垂，手掌張開",
+    "airborne": "維持姿勢時手臂必須**懸空** —— 手肘靠桌面、前臂撐在扶手、或上臂貼死在身側，都會讓重力被外物支撐掉，肌肉不需出力、EMG 消失，系統會判成 rest 讓機械手臂放下。**訓練與操作都必須懸空。**",
+    "timing": "▶▶預告下一個姿勢（1.5s，仍在休息、只用眼睛讀，不列入訓練）→ 移動到目標姿勢（2.0s，不列入）→ **維持不動 4.0s**（這段才是訓練資料）→ 回到中性（2.5s，不列入）→ 在中性完全放鬆 3.5s（標成 rest）",
+    "labelled_phases": "go(維持)=該姿勢, release(放鬆)=rest; prepare/return(移動過程)=丟棄",
+    "actions": {
+      "index_flex": "食指彎向掌心並維持，其餘手指盡量放鬆張開",
+      "thumb_flex": "拇指彎向掌心並維持，其餘手指放鬆",
+      "pinch": "食指與拇指指腹相碰、輕輕捏住並維持",
+      "elbow_flex": "手肘彎曲約 90–120°、前臂抬起並**懸空**維持",
+      "shoulder_flex": "整條手臂向**前**平舉約 90°、肘保持伸直並懸空維持",
+      "arm_lift": "肩前舉約 90° + 同時肘彎曲約 90°（像把東西端在胸前）",
+      "pick_and_lift": "捏住 + 肘彎曲抬起（像撿起小東西拿到面前）",
+      "pick_and_raise": "捏住 + 肘彎曲 + 肩前舉（三個一起）"
+    }
+  },
+  "live_inference": null,
+  "files": {
+    "data": "multi_gary_20260810_14-56-09.csv",
+    "cues": "multi_gary_20260810_14-56-09_cues.csv"
+  }
+}
